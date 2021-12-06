@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using WikiAPI.Providers;
 using WikiAPI.Models;
+using WikiAPI.Data;
 
 namespace WikiAPI
 {
