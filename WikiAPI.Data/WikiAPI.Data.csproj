@@ -54,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubContent.cs" />
+    <Compile Include="Topic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
