@@ -63,9 +63,9 @@
       <Project>{c3040ed0-75fa-4e2c-ad8c-ba93f6bbb342}</Project>
       <Name>WikiAPI.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WikiAPI.Models\WikiAPI.Models.csproj">
-      <Project>{aba47193-bed5-44ba-a408-671e5a20825c}</Project>
-
+	  <ProjectReference Include="..\WikiAPI.Models\WikiAPI.Models.csproj">
+		  <Project>{aba47193-bed5-44ba-a408-671e5a20825c}</Project>
+	  </ProjectReference>
     <Compile Include="SubcontentService.cs" />
   </ItemGroup>
   <ItemGroup>

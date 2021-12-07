@@ -27,7 +27,7 @@ namespace WikiAPI.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Topic.Add(entity);
+                ctx.Topics.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -37,7 +37,7 @@ namespace WikiAPI.Services
             {
                 var query =
                     ctx
-                    .Topic.Where(e => e.AuthorId == _userId)
+                    .Topics.Where(e => e.AuthorId == _userId)
                     .Select(
                         e =>
                         new TopicListItem
@@ -50,7 +50,24 @@ namespace WikiAPI.Services
                 return query.ToArray();
             }
         }
-
+        public TopicDetail GetTopicById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Topics
+                    .Single(e => e.TopicId == id && e.AuthorId == _userId);
+                return
+                    new TopicDetail()
+                    {
+                        TopicId = entity.TopicId,
+                        TopicTitle = entity.TopicTitle,
+                        Summary = entity.Summary,
+                        TopicCreatedAt = entity.TopicCreatedAt
+                    };
+            }
+        }
 
 
 

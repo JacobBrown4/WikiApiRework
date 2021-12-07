@@ -9,7 +9,7 @@ namespace WikiAPI.Models.Topic
     public class TopicListItem
     {
         public int TopicId { get; set; }
-        public int TopicTitle { get; set; }
+        public string TopicTitle { get; set; }
         public DateTime TopicCreatedAt { get; set; }
     }
 }
