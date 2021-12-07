@@ -5,21 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WikiAPI.Data
+namespace WikiAPI.Models.Topic
 {
-    public class Topic
+    public class TopicCreate
     {
         [Key]
         public int TopicId { get; set; }
         [Required]
+        [MinLength(2, ErrorMessage = "There aren't enough characters in this field")]
         public string TopicTitle { get; set; }
         [Required]
-        public string  Summary { get; set; }
+        [MinLength(2, ErrorMessage = "There aren't enough characters in this field")]
+        public string Summary { get; set; }
         [Required]
         public DateTime TopicCreatedAt { get; set; }
         //[Required]
         //public Dictionary<String sidebar> Sidebar { get; set; }
-        [Required]
-        public Guid AuthorId { get; set; }
     }
 }
