@@ -32,6 +32,7 @@ namespace WikiAPI.Data
             return new ApplicationDbContext();
         }
         public DbSet<Subcontent> Subcontents { get; set; }
+        public DbSet<Topic> Topics { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

@@ -27,7 +27,7 @@ namespace WikiAPI.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Topic.Add(entity);
+                ctx.Topics.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -37,7 +37,7 @@ namespace WikiAPI.Services
             {
                 var query =
                     ctx
-                    .Topic.Where(e => e.AuthorId == _userId)
+                    .Topics.Where(e => e.AuthorId == _userId)
                     .Select(
                         e =>
                         new TopicListItem
