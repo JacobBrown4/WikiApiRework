@@ -18,8 +18,8 @@ namespace WikiAPI.Controllers
             private SubcontentService CreateSubcontentService()
             {
                 var userId = Guid.Parse(User.Identity.GetUserId());
-                var studentService = new SubcontentService(userId);
-                return studentService;
+                var subcontentService = new SubcontentService(userId);
+                return subcontentService;
             }
             public IHttpActionResult Get()
             {
