@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using WikiAPI.Data;
 using WikiAPI.Models;
 using WikiAPI.Providers;
 using WikiAPI.Results;
