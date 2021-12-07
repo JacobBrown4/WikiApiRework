@@ -21,7 +21,7 @@ namespace WikiAPI.Controllers
         public IHttpActionResult Get()
         {
             TopicService topicService = CreateTopicService();
-            var topic = new TopicService.GetTopic();
+            var topic = topicService.GetTopic();
             return Ok(topic);
         }
     }
