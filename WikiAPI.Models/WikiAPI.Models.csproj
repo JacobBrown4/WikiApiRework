@@ -43,10 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+
+    <Compile Include="Topic\TopicCreate.cs" />
+    <Compile Include="Topic\TopicDetail.cs" />
+    <Compile Include="Topic\TopicEdit.cs" />
+    <Compile Include="Topic\TopicListItem.cs" />
+
     <Compile Include="Subcontent\SubcontentCreate.cs" />
     <Compile Include="Subcontent\SubcontentDetail.cs" />
     <Compile Include="Subcontent\SubcontentEdit.cs" />
     <Compile Include="Subcontent\SubcontentListItem.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
