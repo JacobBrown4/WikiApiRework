@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WikiAPI.Models.Topic;
 using WikiAPI.Services;
 
 namespace WikiAPI.Controllers
@@ -21,8 +22,45 @@ namespace WikiAPI.Controllers
         public IHttpActionResult Get()
         {
             TopicService topicService = CreateTopicService();
-            var topic = new TopicService.GetTopic();
+            var topic = topicService.GetTopic();
             return Ok(topic);
         }
-    }
+        public IHttpActionResult Post(TopicCreate topic)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateTopicService();
+
+            if (!service.CreateTopic(topic))
+                return InternalServerError();
+
+            return Ok();
+        }
+        public IHttpActionResult Get(int id)
+        {
+            TopicService topicService = CreateTopicService();
+            var topic = topicService.GetTopicById(id);
+            return Ok(topic);
+        }
+        public IHttpActionResult Put(TopicEdit topic)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreateTopicService();
+
+            if (!service.UpdateTopic(topic))
+                return InternalServerError();
+            return Ok();
+        }
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateTopicService();
+
+            if (!service.DeleteTopic(id))
+                return InternalServerError();
+            return Ok();
+
+        }
+    } 
 }

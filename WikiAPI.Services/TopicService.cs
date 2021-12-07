@@ -23,7 +23,7 @@ namespace WikiAPI.Services
                     TopicId = topicmodel.TopicId,
                     TopicTitle = topicmodel.TopicTitle,
                     Summary = topicmodel.Summary,
-                    TopicCreatedAt = DateTime.Now,
+                    TopicCreatedAt = DateTime.Now
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -68,8 +68,32 @@ namespace WikiAPI.Services
                     };
             }
         }
+        public bool UpdateTopic(TopicEdit topicmodel)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Topics
+                    .Single(e => e.TopicId == topicmodel.TopicId);
+                entity.TopicTitle = topicmodel.TopicTitle;
+                entity.TopicCreatedAt = DateTime.Now;
+                entity.Summary = topicmodel.Summary;
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteTopic(int topicId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Topics
+                    .Single(e => e.TopicId == topicId);
+                ctx.Topics.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
 
-
-
+        }
     }
 }
