@@ -19,7 +19,7 @@ namespace WikiAPI.Data
         [Required]
         public string Summary { get; set; }
         [ForeignKey("Content")]
-        public int Content_Id { get; set; }
+        public int ContentId { get; set; }
         [Required]
         public string Content { get; set; }
         public Guid OwnerId { get; set; }
