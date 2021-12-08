@@ -26,11 +26,13 @@ namespace WikiAPI.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Content> Contents { get; set; }
         public DbSet<Subcontent> Subcontents { get; set; }
         public DbSet<Topic> Topics { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -41,22 +43,25 @@ namespace WikiAPI.Data
 
             modelBuilder
                 .Configurations
-                .Add(new IdentityUserLoginConfiguration())
-                .Add(new IdentityUserRoleConfiguration());
+                .Add(new IdentityUserLoginConfiguration());
+
         }
     }
+
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
         public IdentityUserLoginConfiguration()
         {
             HasKey(iul => iul.UserId);
         }
-    }
-    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-    {
-        public IdentityUserRoleConfiguration()
+
+        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
         {
-            HasKey(iur => iur.UserId);
+            public IdentityUserRoleConfiguration()
+            {
+                HasKey(iur => iur.UserId);
+            }
         }
     }
 }
+
