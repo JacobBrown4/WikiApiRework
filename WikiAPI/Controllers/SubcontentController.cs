@@ -46,6 +46,7 @@ namespace WikiAPI.Controllers
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
+
                 var service = CreateSubcontentService();
 
                 if (!service.UpdateSubcontent(subcontent))
