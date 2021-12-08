@@ -56,16 +56,30 @@
   <ItemGroup>
     <Compile Include="Content.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202112081955318_InitialCreate.cs" />
+    <Compile Include="Migrations\202112081955318_InitialCreate.Designer.cs">
+      <DependentUpon>202112081955318_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112082047562_InitialCommit.cs" />
+    <Compile Include="Migrations\202112082047562_InitialCommit.Designer.cs">
+      <DependentUpon>202112082047562_InitialCommit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
     <Compile Include="Topic.cs" />
-
     <Compile Include="Subcontent.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112081955318_InitialCreate.resx">
+      <DependentUpon>202112081955318_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112082047562_InitialCommit.resx">
+      <DependentUpon>202112082047562_InitialCommit.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

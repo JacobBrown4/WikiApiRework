@@ -23,8 +23,7 @@ namespace WikiAPI.Services
                 Id = subcontentmodel.Id,
                 Title = subcontentmodel.Title,
                 CreatedAt = DateTime.Now,
-                Summary = subcontentmodel.Summary,
-                Content = subcontentmodel.Content
+                Summary = subcontentmodel.Summary
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -65,8 +64,7 @@ namespace WikiAPI.Services
                         Id = entity.Id,
                         Title = entity.Title,
                         CreatedAt = entity.CreatedAt,
-                        Summary = entity.Summary,
-                        Content = entity.Content
+                        Summary = entity.Summary
                     };
             }
         }
@@ -81,7 +79,6 @@ namespace WikiAPI.Services
                 entity.Title = subcontentmodel.Title;
                 entity.CreatedAt = DateTime.Now;
                 entity.Summary = subcontentmodel.Summary;
-                entity.Content = subcontentmodel.Content;
                 return ctx.SaveChanges() == 1;
             }
         }
