@@ -18,8 +18,10 @@ namespace WikiAPI.Data
         [Required]
         public DateTime TopicCreatedAt { get; set; }
         //[Required]
-        //public Dictionary<String sidebar> Sidebar { get; set; }
+        //public Dictionary<String> Sidebar { get; set; } = new Dictionary<TKey, TValue>
         [Required]
         public Guid AuthorId { get; set; }
+        [Required]
+        public virtual List<Content> Contents { get; set; } = new List<Content>();
     }
 }

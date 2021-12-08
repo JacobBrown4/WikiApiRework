@@ -20,6 +20,5 @@ namespace WikiAPI.Data
         public Guid Author_Id { get; set; }
         public virtual List<Subcontent> Subcontents { get; set; } = new List<Subcontent>();
 
-        // Foreach instance of Subcontent add instance to list 
     }
 }
