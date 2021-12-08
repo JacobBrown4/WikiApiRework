@@ -35,17 +35,6 @@ namespace WikiAPI.Data
         public DbSet<Content> Contents { get; set; }
         public DbSet<Subcontent> Subcontents { get; set; }
         public DbSet<Topic> Topics { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .Conventions
-                .Remove<PluralizingTableNameConvention>();
-
-            modelBuilder
-                .Configurations
-                .Add(new IdentityUserLoginConfiguration());
-
-        }
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
@@ -53,14 +42,6 @@ namespace WikiAPI.Data
         public IdentityUserLoginConfiguration()
         {
             HasKey(iul => iul.UserId);
-        }
-
-        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-        {
-            public IdentityUserRoleConfiguration()
-            {
-                HasKey(iur => iur.UserId);
-            }
         }
     }
 }

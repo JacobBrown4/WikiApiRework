@@ -20,8 +20,7 @@ namespace WikiAPI.Data
         public string Summary { get; set; }
         [ForeignKey("Content")]
         public int ContentId { get; set; }
-        [Required]
-        public string Content { get; set; }
+        public virtual Content Content { get; set; }
         public Guid OwnerId { get; set; }
     }
 }
