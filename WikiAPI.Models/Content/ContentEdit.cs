@@ -10,7 +10,5 @@ namespace WikiAPI.Models.Content
     {
         public int ContentId { get; set; }
         public string Title { get; set; }
-        public string Summary { get; set; }
-        public string Topic { get; set; }
     }
 }

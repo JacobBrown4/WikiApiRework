@@ -208,6 +208,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TopicController.cs" />
+    <Compile Include="Controllers\SubcontentController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -318,6 +320,7 @@
     </ProjectReference>
     <ProjectReference Include="..\WikiAPI.Services\WikiAPI.Services.csproj">
       <Project>{AA7CDDFA-7AF4-41D0-8F33-2D7111AFE7CE}</Project>
+      <Project>{aa7cddfa-7af4-41d0-8f33-2d7111afe7ce}</Project>
       <Name>WikiAPI.Services</Name>
     </ProjectReference>
   </ItemGroup>

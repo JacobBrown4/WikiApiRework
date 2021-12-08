@@ -6,23 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WikiAPI.Models.Content
+namespace WikiAPI.Models.Subcontent
 {
-    public class ContentCreate
+    public class SubcontentCreate
     {
         [Key]
-        public int ContentId { get; set; }
+        public int Id { get; set; }
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Title { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
-        
-
-
-
-
-
-
+        [Required]
+        public string Summary { get; set; }
+        [Required]
+        public string Content { get; set; }
     }
 }

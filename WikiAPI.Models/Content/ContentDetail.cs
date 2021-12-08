@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WikiAPI.Models.Subcontent;
 
 namespace WikiAPI.Models.Content
 {
@@ -12,10 +13,10 @@ namespace WikiAPI.Models.Content
     {
         public int ContentId { get; set; }
         public string Title { get; set; }
-        public string Summary { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedAt { get; set; }
-        public string Topic { get; set; }
+
+        public List<SubcontentListItem> Subcontents { get; set; }
     }
 }

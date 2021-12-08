@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WikiAPI.Data;
 using WikiAPI.Models.Content;
+using WikiAPI.Models.Subcontent;
 
 namespace WikiAPI.Services
 {
@@ -23,9 +24,7 @@ namespace WikiAPI.Services
             {
                 ContentId = contentmodel.ContentId,
                 Title = contentmodel.Title,
-                CreatedAt = DateTime.Now,
-                Summary = contentmodel.Summary,
-                Topic = contentmodel.Topic
+                CreatedAt = DateTime.Now
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -59,15 +58,19 @@ namespace WikiAPI.Services
                     ctx
                     .Contents
                     .Single(e => e.ContentId == id && e.Author_Id == _userId);
-                    return
-                    new ContentDetail
+                return
+                new ContentDetail
+                {
+                    ContentId = entity.ContentId,
+                    Title = entity.Title,
+                    CreatedAt = entity.CreatedAt,
+                    Subcontents = entity.Subcontents.Select(x => new SubcontentListItem()
                     {
-                        ContentId = entity.ContentId,
-                        Title = entity.Title,
-                        Summary = entity.Summary,
-                        CreatedAt = entity.CreatedAt,
-                        Topic = entity.Topic
-                    };
+                        Id = x.Id,
+                        Title = x.Title,
+
+                    }).ToList()
+                };
             }
         }
         public bool UpdateContent(ContentEdit model)
@@ -79,8 +82,6 @@ namespace WikiAPI.Services
                     .Contents
                     .Single(e => e.ContentId == model.ContentId && e.Author_Id == _userId);
                 entity.Title = model.Title;
-                entity.Summary = model.Summary;
-                entity.Topic = model.Topic;
 
                 return ctx.SaveChanges() == 1; 
             }
