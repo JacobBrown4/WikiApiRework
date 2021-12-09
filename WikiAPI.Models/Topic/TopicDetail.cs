@@ -17,8 +17,6 @@ namespace WikiAPI.Models.Topic
         public string Summary { get; set; }
 
         public DateTime TopicCreatedAt { get; set; }
-        public virtual List<ContentListItem> Contents { get; set; }
-
-        //public Dictionary<String sidebar> Sidebar { get; set; }
+        public List<ContentListItem> Contents { get; set; }
     }
 }

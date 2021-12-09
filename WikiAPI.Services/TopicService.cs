@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WikiAPI.Data;
+using WikiAPI.Models;
 using WikiAPI.Models.Content;
 using WikiAPI.Models.Topic;
 
@@ -69,7 +70,13 @@ namespace WikiAPI.Services
                         Contents = entity.Contents.Select(x => new ContentListItem()
                         {
                             ContentId = x.ContentId,
-                            Title = x.Title
+                            Title = x.Title,
+                            Subcontents = x.Subcontents.Select(y => new SubcontentDisplay()
+                            {
+                                Title = y.Title,
+                                Content = y.Content,
+                                Summary = y.Summary
+                            }).ToList()
                         }).ToList()
                     };
             }
