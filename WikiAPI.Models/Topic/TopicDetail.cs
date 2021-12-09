@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WikiAPI.Models.Content;
 
 namespace WikiAPI.Models.Topic
 {
@@ -16,7 +17,6 @@ namespace WikiAPI.Models.Topic
         public string Summary { get; set; }
 
         public DateTime TopicCreatedAt { get; set; }
-
-        //public Dictionary<String sidebar> Sidebar { get; set; }
+        public List<ContentListItem> Contents { get; set; }
     }
 }
