@@ -39,7 +39,7 @@ namespace WikiAPI.Services
             {
                 var query =
                     ctx
-                    .Topics.Where(e => e.AuthorId == _userId)
+                    .Topics.AsEnumerable()
                     .Select(
                         e =>
                         new TopicListItem
@@ -74,7 +74,7 @@ namespace WikiAPI.Services
                             Subcontents = x.Subcontents.Select(y => new SubcontentDisplay()
                             {
                                 Title = y.Title,
-                                Content = y.Content,
+                                Content = y.Content.ToString(),
                                 Summary = y.Summary
                             }).ToList()
                         }).ToList()

@@ -15,8 +15,6 @@ namespace WikiAPI.Models.Content
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Title { get; set; }
-        [Required]
-        public DateTime CreatedAt { get; set; }
         
 
 
