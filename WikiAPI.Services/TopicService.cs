@@ -47,6 +47,7 @@ namespace WikiAPI.Services
                             TopicId = e.TopicId,
                             TopicTitle = e.TopicTitle,
                             TopicCreatedAt = e.TopicCreatedAt
+                            
                         }
                         );
                 return query.ToArray();
@@ -75,7 +76,7 @@ namespace WikiAPI.Services
                             {
                                 Title = y.Title,
                                 Content = y.Content.ToString(),
-                                Summary = y.Summary
+                                Summary = y.Summary,
                             }).ToList()
                         }).ToList()
                     };

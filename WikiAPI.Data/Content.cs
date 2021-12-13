@@ -19,7 +19,6 @@ namespace WikiAPI.Data
         [Required]
         public Guid AuthorId { get; set; }
         public virtual List<Subcontent> Subcontents { get; set; } = new List<Subcontent>();
-        [ForeignKey("Topic")]
         public int TopicId { get; set; }
     }
 }
