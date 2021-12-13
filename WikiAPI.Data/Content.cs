@@ -17,10 +17,8 @@ namespace WikiAPI.Data
         [Required]
         public DateTime CreatedAt { get; set; }
         [Required]
-        public Guid Author_Id { get; set; }
+        public Guid AuthorId { get; set; }
         public virtual List<Subcontent> Subcontents { get; set; } = new List<Subcontent>();
-        [ForeignKey("Topic")]
         public int TopicId { get; set; }
-        public Topic Topic { get; set; }
     }
 }

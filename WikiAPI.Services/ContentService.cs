@@ -24,7 +24,8 @@ namespace WikiAPI.Services
             {
                 ContentId = contentmodel.ContentId,
                 Title = contentmodel.Title,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.Now,
+                TopicId = contentmodel.TopicId
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -39,7 +40,7 @@ namespace WikiAPI.Services
                 var query =
                     ctx
                     .Contents
-                    .Where(e => e.Author_Id == _userId)
+                    .AsEnumerable()
                     .Select(e => new ContentListItem
                     {
                         ContentId = e.ContentId,
@@ -57,7 +58,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Contents
-                    .Single(e => e.ContentId == id && e.Author_Id == _userId);
+                    .Single(e => e.ContentId == id);
                 return
                 new ContentDetail
                 {
@@ -68,7 +69,7 @@ namespace WikiAPI.Services
                     {
                         Id = x.Id,
                         Title = x.Title,
-
+                        Summary = x.Summary
                     }).ToList()
                 };
             }
@@ -80,7 +81,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Contents
-                    .Single(e => e.ContentId == model.ContentId && e.Author_Id == _userId);
+                    .Single(e => e.ContentId == model.ContentId);
                 entity.Title = model.Title;
 
                 return ctx.SaveChanges() == 1; 
@@ -94,7 +95,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Contents
-                    .Single(e => e.ContentId == contentId && e.Author_Id == _userId);
+                    .Single(e => e.ContentId == contentId);
 
                     ctx.Contents.Remove(entity);
 
