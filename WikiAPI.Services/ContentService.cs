@@ -39,7 +39,7 @@ namespace WikiAPI.Services
                 var query =
                     ctx
                     .Contents
-                    .Where(e => e.Author_Id == _userId)
+                    .Where(e => e.AuthorId == _userId)
                     .Select(e => new ContentListItem
                     {
                         ContentId = e.ContentId,
@@ -57,7 +57,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Contents
-                    .Single(e => e.ContentId == id && e.Author_Id == _userId);
+                    .Single(e => e.ContentId == id);
                 return
                 new ContentDetail
                 {
@@ -80,7 +80,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Contents
-                    .Single(e => e.ContentId == model.ContentId && e.Author_Id == _userId);
+                    .Single(e => e.ContentId == model.ContentId && e.AuthorId == _userId);
                 entity.Title = model.Title;
 
                 return ctx.SaveChanges() == 1; 
@@ -94,7 +94,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Contents
-                    .Single(e => e.ContentId == contentId && e.Author_Id == _userId);
+                    .Single(e => e.ContentId == contentId && e.AuthorId == _userId);
 
                     ctx.Contents.Remove(entity);
 

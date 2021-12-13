@@ -59,7 +59,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Topics
-                    .Single(e => e.TopicId == id && e.AuthorId == _userId);
+                    .Single(e => e.TopicId == id);
                 return
                     new TopicDetail()
                     {
