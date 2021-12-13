@@ -23,7 +23,8 @@ namespace WikiAPI.Services
                 Id = subcontentmodel.Id,
                 Title = subcontentmodel.Title,
                 CreatedAt = DateTime.Now,
-                Summary = subcontentmodel.Summary
+                Summary = subcontentmodel.Summary,
+                ContentId = subcontentmodel.ContentId
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -37,14 +38,15 @@ namespace WikiAPI.Services
             {
                 var query =
                     ctx
-                    .Subcontents.Where(e => e.OwnerId == _userId)
+                    .Subcontents.AsEnumerable()
                     .Select(
                         e =>
                         new SubcontentListItem
                         {
                             Id = e.Id,
                             Title = e.Title,
-                            CreatedAt = e.CreatedAt
+                            CreatedAt = e.CreatedAt,
+                            Summary = e.Summary
                         }
                         );
                 return query.ToArray();
@@ -57,7 +59,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Subcontents
-                    .Single(e => e.Id == id && e.OwnerId == _userId);
+                    .Single(e => e.Id == id);
                 return
                     new SubcontentDetail()
                     {
@@ -77,7 +79,6 @@ namespace WikiAPI.Services
                     .Subcontents
                     .Single(e => e.Id == subcontentmodel.Id);
                 entity.Title = subcontentmodel.Title;
-                entity.CreatedAt = DateTime.Now;
                 entity.Summary = subcontentmodel.Summary;
                 return ctx.SaveChanges() == 1;
             }

@@ -18,7 +18,6 @@ namespace WikiAPI.Data
         public DateTime CreatedAt { get; set; }
         [Required]
         public string Summary { get; set; }
-        [ForeignKey("Content")]
         public int ContentId { get; set; }
         public string Content { get; set; }
         public Guid OwnerId { get; set; }

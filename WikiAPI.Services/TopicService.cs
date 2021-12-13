@@ -39,7 +39,7 @@ namespace WikiAPI.Services
             {
                 var query =
                     ctx
-                    .Topics.Where(e => e.AuthorId == _userId)
+                    .Topics.AsEnumerable()
                     .Select(
                         e =>
                         new TopicListItem
@@ -47,6 +47,7 @@ namespace WikiAPI.Services
                             TopicId = e.TopicId,
                             TopicTitle = e.TopicTitle,
                             TopicCreatedAt = e.TopicCreatedAt
+                            
                         }
                         );
                 return query.ToArray();
@@ -59,7 +60,7 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Topics
-                    .Single(e => e.TopicId == id && e.AuthorId == _userId);
+                    .Single(e => e.TopicId == id);
                 return
                     new TopicDetail()
                     {
@@ -74,8 +75,8 @@ namespace WikiAPI.Services
                             Subcontents = x.Subcontents.Select(y => new SubcontentDisplay()
                             {
                                 Title = y.Title,
-                                Content = y.Content,
-                                Summary = y.Summary
+                                Content = y.Content.ToString(),
+                                Summary = y.Summary,
                             }).ToList()
                         }).ToList()
                     };
