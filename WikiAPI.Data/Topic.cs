@@ -18,8 +18,7 @@ namespace WikiAPI.Data
         public string  Summary { get; set; }
         [Required]
         public DateTime TopicCreatedAt { get; set; }
-        //[Required]
-        //public Dictionary<String> Sidebar { get; set; } = new Dictionary<TKey, TValue>
+        public virtual List<Content> Contents { get; set; } = new List<Content>();
         [Required]
         public Guid AuthorId { get; set; }
 
