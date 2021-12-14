@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WikiAPI.Data;
+using WikiAPI.Models;
+using WikiAPI.Models.Content;
 using WikiAPI.Models.Topic;
 
 namespace WikiAPI.Services
@@ -37,7 +39,7 @@ namespace WikiAPI.Services
             {
                 var query =
                     ctx
-                    .Topics.Where(e => e.AuthorId == _userId)
+                    .Topics.AsEnumerable()
                     .Select(
                         e =>
                         new TopicListItem
@@ -45,6 +47,7 @@ namespace WikiAPI.Services
                             TopicId = e.TopicId,
                             TopicTitle = e.TopicTitle,
                             TopicCreatedAt = e.TopicCreatedAt
+                            
                         }
                         );
                 return query.ToArray();
@@ -57,14 +60,24 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Topics
-                    .Single(e => e.TopicId == id && e.AuthorId == _userId);
+                    .Single(e => e.TopicId == id);
                 return
                     new TopicDetail()
                     {
                         TopicId = entity.TopicId,
                         TopicTitle = entity.TopicTitle,
                         Summary = entity.Summary,
-                        TopicCreatedAt = entity.TopicCreatedAt
+                        TopicCreatedAt = entity.TopicCreatedAt,
+                        Contents = entity.Contents.Select(x => new ContentListItem()
+                        {
+                            ContentId = x.ContentId,
+                            Title = x.Title,
+                            Subcontents = x.Subcontents.Select(y => new SubcontentDisplay()
+                            {
+                                Title = y.Title,
+                                Summary = y.Summary
+                            }).ToList()
+                        }).ToList()
                     };
             }
         }

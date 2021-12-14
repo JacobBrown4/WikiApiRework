@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace WikiAPI.Data
 {
-    public class Subcontent
+   public class Content
     {
         [Key]
-        public int Id { get; set; }
+        public int ContentId { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
         [Required]
-        public string Summary { get; set; }
-        public int ContentId { get; set; }
-        public virtual Content Content { get; set; }
-        public Guid OwnerId { get; set; }
+        public Guid AuthorId { get; set; }
+        public virtual List<Subcontent> Subcontents { get; set; } = new List<Subcontent>();
+        public int TopicId { get; set; }
     }
 }

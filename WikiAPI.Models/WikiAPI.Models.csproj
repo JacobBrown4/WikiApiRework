@@ -42,18 +42,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentDisplay.cs" />
+    <Compile Include="Content\ContentCreate.cs" />
+    <Compile Include="Content\ContentEdit.cs" />
+    <Compile Include="Content\ContentDetail.cs" />
+    <Compile Include="Content\ContentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
+    <Compile Include="SubcontentDisplay.cs" />
     <Compile Include="Topic\TopicCreate.cs" />
     <Compile Include="Topic\TopicDetail.cs" />
     <Compile Include="Topic\TopicEdit.cs" />
     <Compile Include="Topic\TopicListItem.cs" />
-
     <Compile Include="Subcontent\SubcontentCreate.cs" />
     <Compile Include="Subcontent\SubcontentDetail.cs" />
     <Compile Include="Subcontent\SubcontentEdit.cs" />
     <Compile Include="Subcontent\SubcontentListItem.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WikiAPI.Data\WikiAPI.Data.csproj">
+      <Project>{c3040ed0-75fa-4e2c-ad8c-ba93f6bbb342}</Project>
+      <Name>WikiAPI.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,18 +5,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WikiAPI.Models.Topic;
 
-namespace WikiAPI.Models.Subcontent
+namespace WikiAPI.Models.Content
 {
-    public class SubcontentCreate
+    public class ContentCreate
     {
         [Key]
-        public int Id { get; set; }
+        public int ContentId { get; set; }
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Title { get; set; }
-        [Required]
-        public string Summary { get; set; }
-        public int ContentId { get; set; }
+        public int TopicId { get; set; }
     }
 }

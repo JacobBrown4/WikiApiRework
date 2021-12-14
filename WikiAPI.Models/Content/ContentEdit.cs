@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WikiAPI.Models.Subcontent
+namespace WikiAPI.Models.Content
 {
-    public class SubcontentEdit
+    public class ContentEdit
     {
-        public int Id { get; set; }
+        public int ContentId { get; set; }
         public string Title { get; set; }
-        public string Summary { get; set; }
     }
 }

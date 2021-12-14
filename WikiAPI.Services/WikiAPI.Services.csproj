@@ -54,8 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
     <Compile Include="TopicService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,10 +63,23 @@
       <Project>{c3040ed0-75fa-4e2c-ad8c-ba93f6bbb342}</Project>
       <Name>WikiAPI.Data</Name>
     </ProjectReference>
-	  <ProjectReference Include="..\WikiAPI.Models\WikiAPI.Models.csproj">
-		  <Project>{aba47193-bed5-44ba-a408-671e5a20825c}</Project>
-	  </ProjectReference>
+    <ProjectReference Include="..\WikiAPI.Models\WikiAPI.Models.csproj">
+      <Project>{aba47193-bed5-44ba-a408-671e5a20825c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WikiAPI.Models\WikiAPI.Models.csproj">
+      <Project>{aba47193-bed5-44ba-a408-671e5a20825c}</Project>
+    </ProjectReference>
     <Compile Include="SubcontentService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WikiAPI.Data\WikiAPI.Data.csproj">
+      <Project>{C3040ED0-75FA-4E2C-AD8C-BA93F6BBB342}</Project>
+      <Name>WikiAPI.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WikiAPI.Data\WikiAPI.Data.csproj">
@@ -75,7 +88,6 @@
     </ProjectReference>
     <ProjectReference Include="..\WikiAPI.Models\WikiAPI.Models.csproj">
       <Project>{ABA47193-BED5-44BA-A408-671E5A20825C}</Project>
-
       <Name>WikiAPI.Models</Name>
     </ProjectReference>
   </ItemGroup>

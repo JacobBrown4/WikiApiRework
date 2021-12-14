@@ -24,7 +24,7 @@ namespace WikiAPI.Services
                 Title = subcontentmodel.Title,
                 CreatedAt = DateTime.Now,
                 Summary = subcontentmodel.Summary,
-                Content = subcontentmodel.Content
+                ContentId = subcontentmodel.ContentId
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -38,14 +38,15 @@ namespace WikiAPI.Services
             {
                 var query =
                     ctx
-                    .Subcontents.Where(e => e.OwnerId == _userId)
+                    .Subcontents.AsEnumerable()
                     .Select(
                         e =>
                         new SubcontentListItem
                         {
                             Id = e.Id,
                             Title = e.Title,
-                            CreatedAt = e.CreatedAt
+                            CreatedAt = e.CreatedAt,
+                            Summary = e.Summary
                         }
                         );
                 return query.ToArray();
@@ -58,15 +59,14 @@ namespace WikiAPI.Services
                 var entity =
                     ctx
                     .Subcontents
-                    .Single(e => e.Id == id && e.OwnerId == _userId);
+                    .Single(e => e.Id == id);
                 return
                     new SubcontentDetail()
                     {
                         Id = entity.Id,
                         Title = entity.Title,
                         CreatedAt = entity.CreatedAt,
-                        Summary = entity.Summary,
-                        Content = entity.Content
+                        Summary = entity.Summary
                     };
             }
         }
@@ -79,9 +79,7 @@ namespace WikiAPI.Services
                     .Subcontents
                     .Single(e => e.Id == subcontentmodel.Id);
                 entity.Title = subcontentmodel.Title;
-                entity.CreatedAt = DateTime.Now;
                 entity.Summary = subcontentmodel.Summary;
-                entity.Content = subcontentmodel.Content;
                 return ctx.SaveChanges() == 1;
             }
         }
