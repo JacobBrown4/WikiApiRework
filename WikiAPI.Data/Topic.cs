@@ -18,9 +18,9 @@ namespace WikiAPI.Data
         public string  Summary { get; set; }
         [Required]
         public DateTime TopicCreatedAt { get; set; }
+        public virtual List<Content> Contents { get; set; } = new List<Content>();
         [Required]
         public Guid AuthorId { get; set; }
-        public virtual List<Content> Contents { get; set; } = new List<Content>();
 
     }
 }
