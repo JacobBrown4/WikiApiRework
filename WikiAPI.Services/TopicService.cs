@@ -75,8 +75,7 @@ namespace WikiAPI.Services
                             Subcontents = x.Subcontents.Select(y => new SubcontentDisplay()
                             {
                                 Title = y.Title,
-                                Content = y.Content.ToString(),
-                                Summary = y.Summary,
+                                Summary = y.Summary
                             }).ToList()
                         }).ToList()
                     };
