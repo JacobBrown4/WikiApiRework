@@ -17,7 +17,5 @@ namespace WikiAPI.Models.Topic
         [Required]
         [MinLength(2, ErrorMessage = "There aren't enough characters in this field")]
         public string Summary { get; set; }
-        //[Required]
-        //public Dictionary<String sidebar> Sidebar { get; set; }
     }
 }

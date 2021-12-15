@@ -15,7 +15,7 @@ namespace WikiAPI.Models.Content
         public string Title { get; set; }
 
         [Display(Name = "Created")]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         public List<SubcontentListItem> Subcontents { get; set; }
     }

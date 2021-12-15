@@ -19,7 +19,7 @@ namespace WikiAPI.Data
         [Required]
         public string Summary { get; set; }
         public int ContentId { get; set; }
-        public virtual Content Content { get; set; }
+        public string Content { get; set; }
         public Guid OwnerId { get; set; }
     }
 }
