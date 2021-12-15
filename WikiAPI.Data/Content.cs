@@ -20,5 +20,6 @@ namespace WikiAPI.Data
         public Guid AuthorId { get; set; }
         public virtual List<Subcontent> Subcontents { get; set; } = new List<Subcontent>();
         public int TopicId { get; set; }
+        public string TopicTitle { get; set; }
     }
 }

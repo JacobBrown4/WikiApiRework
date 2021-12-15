@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WikiAPI.Data;
+using WikiAPI.Models;
 using WikiAPI.Models.Content;
 using WikiAPI.Models.Subcontent;
 
@@ -45,9 +46,10 @@ namespace WikiAPI.Services
                     {
                         ContentId = e.ContentId,
                         Title = e.Title,
-                        CreatedAt = e.CreatedAt
+                        CreatedAt = e.CreatedAt,
                     }
                     );
+                    
                 return query.ToArray();
             }
         }
@@ -69,7 +71,8 @@ namespace WikiAPI.Services
                     {
                         Id = x.Id,
                         Title = x.Title,
-                        Summary = x.Summary
+                        Summary = x.Summary,
+                        CreatedAt = x.CreatedAt
                     }).ToList()
                 };
             }
