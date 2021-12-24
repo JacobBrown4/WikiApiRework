@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WikiAPI.Models.Topic
+namespace WikiAPI.Models
 {
-    public class TopicListItem
+    public class TopicDisplay
     {
-        public int TopicId { get; set; }
         public string TopicTitle { get; set; }
-        public List<string> Contents { get; set; }
+
+        public string Summary { get; set; }
+
+        public List<ContentDisplay> Contents { get; set; }
     }
 }

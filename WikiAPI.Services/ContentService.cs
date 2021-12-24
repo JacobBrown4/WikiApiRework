@@ -23,10 +23,10 @@ namespace WikiAPI.Services
         {
             var entity = new Content()
             {
-                ContentId = contentmodel.ContentId,
                 Title = contentmodel.Title,
                 CreatedAt = DateTime.Now,
-                TopicId = contentmodel.TopicId
+                TopicId = contentmodel.TopicId,
+                Author = _userId
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -41,12 +41,12 @@ namespace WikiAPI.Services
                 var query =
                     ctx
                     .Contents
-                    .AsEnumerable()
                     .Select(e => new ContentListItem
                     {
                         ContentId = e.ContentId,
                         Title = e.Title,
                         CreatedAt = e.CreatedAt,
+                        Subcontents = e.Subcontents.Select(x => x.Title).ToList()
                     }
                     );
                     
@@ -66,13 +66,13 @@ namespace WikiAPI.Services
                 {
                     ContentId = entity.ContentId,
                     Title = entity.Title,
+                    Topic = entity.Topic.TopicTitle,
                     CreatedAt = entity.CreatedAt,
                     Subcontents = entity.Subcontents.Select(x => new SubcontentListItem()
                     {
                         Id = x.Id,
                         Title = x.Title,
-                        Summary = x.Summary,
-                        CreatedAt = x.CreatedAt
+                        Summary = x.Summary
                     }).ToList()
                 };
             }

@@ -20,7 +20,7 @@ namespace WikiAPI.Data
         public DateTime TopicCreatedAt { get; set; }
         public virtual List<Content> Contents { get; set; } = new List<Content>();
         [Required]
-        public Guid AuthorId { get; set; }
+        public Guid Author { get; set; }
 
     }
 }

@@ -56,35 +56,6 @@
   <ItemGroup>
     <Compile Include="Content.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202112081955318_InitialCreate.cs" />
-    <Compile Include="Migrations\202112081955318_InitialCreate.Designer.cs">
-      <DependentUpon>202112081955318_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112082047562_InitialCommit.cs" />
-    <Compile Include="Migrations\202112082047562_InitialCommit.Designer.cs">
-      <DependentUpon>202112082047562_InitialCommit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112131454111_migration.cs" />
-    <Compile Include="Migrations\202112131454111_migration.Designer.cs">
-      <DependentUpon>202112131454111_migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112132124596_SwaggerAdd.cs" />
-    <Compile Include="Migrations\202112132124596_SwaggerAdd.Designer.cs">
-      <DependentUpon>202112132124596_SwaggerAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112152024403_ContentTimeFix.cs" />
-    <Compile Include="Migrations\202112152024403_ContentTimeFix.Designer.cs">
-      <DependentUpon>202112152024403_ContentTimeFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112152029062_ContentClassChanges.cs" />
-    <Compile Include="Migrations\202112152029062_ContentClassChanges.Designer.cs">
-      <DependentUpon>202112152029062_ContentClassChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112152144426_ChangesToContentClass.cs" />
-    <Compile Include="Migrations\202112152144426_ChangesToContentClass.Designer.cs">
-      <DependentUpon>202112152144426_ChangesToContentClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Topic.cs" />
     <Compile Include="Subcontent.cs" />
@@ -92,29 +63,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202112081955318_InitialCreate.resx">
-      <DependentUpon>202112081955318_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112082047562_InitialCommit.resx">
-      <DependentUpon>202112082047562_InitialCommit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112131454111_migration.resx">
-      <DependentUpon>202112131454111_migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112132124596_SwaggerAdd.resx">
-      <DependentUpon>202112132124596_SwaggerAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112152024403_ContentTimeFix.resx">
-      <DependentUpon>202112152024403_ContentTimeFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112152029062_ContentClassChanges.resx">
-      <DependentUpon>202112152029062_ContentClassChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112152144426_ChangesToContentClass.resx">
-      <DependentUpon>202112152144426_ChangesToContentClass.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
