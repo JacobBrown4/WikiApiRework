@@ -11,11 +11,10 @@ namespace WikiAPI.Models.Content
 {
     public class ContentCreate
     {
-        [Key]
-        public int ContentId { get; set; }
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Title { get; set; }
+        [Required]
         public int TopicId { get; set; }
     }
 }

@@ -9,8 +9,6 @@ namespace WikiAPI.Models.Topic
 {
     public class TopicCreate
     {
-        [Key]
-        public int TopicId { get; set; }
         [Required]
         [MinLength(2, ErrorMessage = "There aren't enough characters in this field")]
         public string TopicTitle { get; set; }

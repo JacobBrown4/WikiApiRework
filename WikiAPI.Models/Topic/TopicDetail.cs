@@ -17,6 +17,6 @@ namespace WikiAPI.Models.Topic
         public string Summary { get; set; }
 
         public DateTime TopicCreatedAt { get; set; }
-        public List<ContentListItem> Contents { get; set; }
+        public List<ContentDetail> Contents { get; set; }
     }
 }

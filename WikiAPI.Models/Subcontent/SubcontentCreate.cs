@@ -10,13 +10,12 @@ namespace WikiAPI.Models.Subcontent
 {
     public class SubcontentCreate
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string Title { get; set; }
         [Required]
         public string Summary { get; set; }
+        [Required]
         public int ContentId { get; set; }
     }
 }

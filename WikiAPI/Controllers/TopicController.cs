@@ -11,6 +11,7 @@ using WikiAPI.Services;
 namespace WikiAPI.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/topic")]
     public class TopicController : ApiController
     {
         private TopicService CreateTopicService()
@@ -19,12 +20,14 @@ namespace WikiAPI.Controllers
             var topicService = new TopicService(userId);
             return topicService;
         }
+        [HttpGet]
         public IHttpActionResult Get()
         {
             TopicService topicService = CreateTopicService();
             var topic = topicService.GetTopic();
             return Ok(topic);
         }
+        [HttpPost]
         public IHttpActionResult Post(TopicCreate topic)
         {
             if (!ModelState.IsValid)
@@ -37,12 +40,24 @@ namespace WikiAPI.Controllers
 
             return Ok();
         }
+        [HttpGet]
+        [Route("{id}")]
         public IHttpActionResult Get(int id)
         {
             TopicService topicService = CreateTopicService();
             var topic = topicService.GetTopicById(id);
             return Ok(topic);
         }
+        [HttpGet]
+        [Route("{id}/article")]
+        public IHttpActionResult ArticleView(int id)
+        {
+            var topicService = CreateTopicService();
+            var topic = topicService.GetArticle(id);
+            return Ok(topic);
+        }
+
+        [HttpPut]
         public IHttpActionResult Put(TopicEdit topic)
         {
             if (!ModelState.IsValid)

@@ -16,6 +16,7 @@ namespace WikiAPI.Models.Content
 
         [Display(Name = "Created")]
         public DateTime CreatedAt { get; set; }
+        public string Topic { get; set; }
 
         public List<SubcontentListItem> Subcontents { get; set; }
     }
